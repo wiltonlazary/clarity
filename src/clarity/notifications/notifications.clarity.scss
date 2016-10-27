@@ -1,0 +1,109 @@
+@import "../utils/variables.clarity";
+@import "../utils/mixins.clarity";
+@import "../color/color.clarity";
+@import "../utils/helpers.clarity";
+@import "../typography/typography.clarity";
+@import "../images/icons.clarity";
+
+@mixin notification-border-appearance() {
+    box-shadow: 0 2px 3px 0 rgba(116, 116, 116, .15); //Hardcoded color not in color palette
+    border-radius: $clr-default-borderradius;
+    border: 1px solid $gray-light;
+}
+
+@include exports('notifications.clarity') {
+
+    .notification-container {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        bottom: 24px;
+        right: 24px;
+
+        .notification {
+            background: $clr-white;
+            @include notification-border-appearance();
+            width: 420px;
+            min-height: 144px;
+        }
+    }
+
+    .notification {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 12px 24px;
+        margin-top: 6px;
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 36px;
+            width: 36px;
+        }
+
+        .notification-title {
+            flex: 0 0 24px;
+            height: 24px;
+            position: relative;
+            font-weight: 600;
+            padding-left: 30px;
+            padding-right: 36px; //to not overlap with the close button
+            margin-bottom: 12px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            line-height: 24px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: inline-block;
+                height: 24px;
+                width: 24px;
+                background-image: generateInfoIcon();
+                background-repeat: no-repeat;
+                background-size: contain;
+                vertical-align: middle;
+            }
+        }
+
+        &.notification-success {
+            .notification-title::after {
+                background-image: generateSuccessIcon();
+            }
+        }
+
+        &.notification-warning {
+            .notification-title::after {
+                background-image: generateWarningIcon();
+            }
+        }
+
+        &.notification-danger {
+            .notification-title::after {
+                background-image: generateErrorIcon();
+            }
+        }
+
+        .notification-body {
+            flex: 1 1 auto;
+        }
+
+        .notification-footer {
+            flex: 0 0 24px;
+            height: 24px;
+            text-align: right;
+            margin-right: -12px; //To counter the padding of the link button
+
+            & > .btn {
+                margin: 0 0 0 12px;
+            }
+        }
+    }
+
+}

@@ -31,6 +31,7 @@
 @import "./nav/subnav.clarity"; // depends on variables.clarity, mixins.clarity, helpers.clarity, color.clarity, layers.clarity
 @import "./nav/sidenav.clarity"; // depends on variables.clarity, mixins.clarity, helpers.clarity, color.clarity
 @import "./nav/responsive-nav.clarity"; // depends on variables.clarity, mixins.clarity, helpers.clarity, color.clarity, layers.clarity
+@import "./notifications/notifications.clarity"; // depends on variables.clarity, mixins.clarity, helpers.clarity, color.clarity
 @import "./progress-bars/progress-bars.clarity"; // depends on variables.clarity, helpers.clarity, color.clarity
 @import "./spinners/spinner.clarity"; // depends on variables.clarity, mixins.clarity, color.clarity, helpers.clarity, icons.clarity
 @import "./stack-view/stack-view.clarity"; // depends on variables.clarity, mixins.clarity, color.clarity, helpers.clarity, forms.clarity

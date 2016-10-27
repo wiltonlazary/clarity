@@ -23,6 +23,7 @@ export const APP_ROUTES: Routes  = [
     { path: "login", loadChildren: "clarity-demos/login/demo/login.demo.module" },
     { path: "modal", loadChildren: "clarity-demos/modal/demo/modal.demo.module" },
     { path: "navigation", loadChildren: "clarity-demos/nav/demo/nav.demo.module" },
+    { path: "notifications", loadChildren: "clarity-demos/notifications/demo/notifications.demo.module" },
     { path: "progress-bars", loadChildren: "clarity-demos/progress-bars/demo/progress-bars.demo.module" },
     { path: "radios", loadChildren: "clarity-demos/radios/demo/radios.demo.module" },
     { path: "selects", loadChildren: "clarity-demos/selects/demo/selects.demo.module" },
