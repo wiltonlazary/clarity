@@ -12,4 +12,8 @@ import { APP_ROUTES } from "./app.routing";
 
 export class AppComponent {
     public routes: Route[] = APP_ROUTES;
+
+    ngAfterViewInit() {
+        console.log('backstop.ready');
+    }
 }

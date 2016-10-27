@@ -1,0 +1,55 @@
+{
+  "viewports": [
+    {
+      "name": "tablet_h",
+      "viewport": {"width": 1024, "height": 768}
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "Demo App",
+      "url": "http://localhost:3000",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectors": [
+        "header",
+        ".sub-nav",
+        ".sidenav",
+        "main.content-area"
+      ],
+      "readyEvent": "backstop.ready",
+      "delay": 500,
+      "misMatchThreshold" : 0.1,
+      "onBeforeScript": "onBefore.js",
+      "onReadyScript": "onReady.js"
+    },
+    {
+      "label": "Buttons",
+      "url": "http://localhost:3000/buttons",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectors": [
+        ".btn-primary",
+        ".btn-success",
+        ".btn-warning",
+        ".btn-danger"
+      ],
+      "readyEvent": "backstop.ready",
+      "delay": 500,
+      "misMatchThreshold" : 0.1,
+      "onBeforeScript": "onBefore.js",
+      "onReadyScript": "onReadyBtn.js"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "../../backstop_data/bitmaps_reference",
+    "bitmaps_test": "../../backstop_data/bitmaps_test",
+    "compare_data": "../../backstop_data/bitmaps_test/compare.json",
+    "casper_scripts": "../../backstop_data/casper_scripts"
+  },
+  "engine": "phantomjs",
+  "report": ["CLI", "browser"],
+  "casperFlags": [],
+  "debug": false,
+  "port": 4000
+}

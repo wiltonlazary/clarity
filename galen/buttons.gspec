@@ -1,0 +1,17 @@
+@objects
+    btn_primary            .btn-primary
+    btn_success            .btn-success
+    btn_warning            .btn-warning
+    btn_danger             .btn-danger
+
+@groups
+    solid_buttons           btn_primary, btn_success, btn_warning, btn_danger
+
+= Buttons =
+    @forEach [&solid_buttons] as button
+        ${button}:
+            height 36 px
+
+    btn_primary:
+        text is "PRIMARY"
+        css font-size is "13px"

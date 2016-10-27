@@ -1,0 +1,71 @@
+{
+  "compareConfig": {
+    "testPairs": [
+      {
+        "reference": "../../backstop_data/bitmaps_reference/0_0_header_0_tablet_h.png",
+        "test": "../../backstop_data/bitmaps_test/20160808-135807/0_0_header_0_tablet_h.png",
+        "selector": "header",
+        "fileName": "0_0_header_0_tablet_h.png",
+        "label": "Demo App",
+        "misMatchThreshold": 0.1
+      },
+      {
+        "reference": "../../backstop_data/bitmaps_reference/0_1_sub-nav_0_tablet_h.png",
+        "test": "../../backstop_data/bitmaps_test/20160808-135807/0_1_sub-nav_0_tablet_h.png",
+        "selector": ".sub-nav",
+        "fileName": "0_1_sub-nav_0_tablet_h.png",
+        "label": "Demo App",
+        "misMatchThreshold": 0.1
+      },
+      {
+        "reference": "../../backstop_data/bitmaps_reference/0_2_sidenav_0_tablet_h.png",
+        "test": "../../backstop_data/bitmaps_test/20160808-135807/0_2_sidenav_0_tablet_h.png",
+        "selector": ".sidenav",
+        "fileName": "0_2_sidenav_0_tablet_h.png",
+        "label": "Demo App",
+        "misMatchThreshold": 0.1
+      },
+      {
+        "reference": "../../backstop_data/bitmaps_reference/0_3_maincontent-area_0_tablet_h.png",
+        "test": "../../backstop_data/bitmaps_test/20160808-135807/0_3_maincontent-area_0_tablet_h.png",
+        "selector": "main.content-area",
+        "fileName": "0_3_maincontent-area_0_tablet_h.png",
+        "label": "Demo App",
+        "misMatchThreshold": 0.1
+      },
+      {
+        "reference": "../../backstop_data/bitmaps_reference/1_0_btn-primary_0_tablet_h.png",
+        "test": "../../backstop_data/bitmaps_test/20160808-135807/1_0_btn-primary_0_tablet_h.png",
+        "selector": ".btn-primary",
+        "fileName": "1_0_btn-primary_0_tablet_h.png",
+        "label": "Buttons",
+        "misMatchThreshold": 0.1
+      },
+      {
+        "reference": "../../backstop_data/bitmaps_reference/1_1_btn-success_0_tablet_h.png",
+        "test": "../../backstop_data/bitmaps_test/20160808-135807/1_1_btn-success_0_tablet_h.png",
+        "selector": ".btn-success",
+        "fileName": "1_1_btn-success_0_tablet_h.png",
+        "label": "Buttons",
+        "misMatchThreshold": 0.1
+      },
+      {
+        "reference": "../../backstop_data/bitmaps_reference/1_2_btn-warning_0_tablet_h.png",
+        "test": "../../backstop_data/bitmaps_test/20160808-135807/1_2_btn-warning_0_tablet_h.png",
+        "selector": ".btn-warning",
+        "fileName": "1_2_btn-warning_0_tablet_h.png",
+        "label": "Buttons",
+        "misMatchThreshold": 0.1
+      },
+      {
+        "reference": "../../backstop_data/bitmaps_reference/1_3_btn-danger_0_tablet_h.png",
+        "test": "../../backstop_data/bitmaps_test/20160808-135807/1_3_btn-danger_0_tablet_h.png",
+        "selector": ".btn-danger",
+        "fileName": "1_3_btn-danger_0_tablet_h.png",
+        "label": "Buttons",
+        "misMatchThreshold": 0.1
+      }
+    ]
+  },
+  "lastConfigHash": "3e94d0e4591709e3ed2981af6cf31b8f637c4afe"
+}
