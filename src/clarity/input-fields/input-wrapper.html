@@ -1,0 +1,7 @@
+<div aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-top-right" [class.invalid]="invalidEntry">
+    <ng-content select="input"></ng-content>
+    <span class="tooltip-content" *ngIf="invalidEntry">
+            You've entered invalid value!
+    </span>
+</div>
+<ng-content select="clr-input-helper"></ng-content>

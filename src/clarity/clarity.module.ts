@@ -6,6 +6,7 @@ import {ALERT_DIRECTIVES} from "./alert/index";
 import {CODE_HIGHLIGHT_DIRECTIVES} from "./code/index";
 import {DROPDOWN_DIRECTIVES} from "./dropdown/index";
 import {LAYOUT_DIRECTIVES} from "./layout/index";
+import {INPUTFIELDS_DIRECTIVES} from "./input-fields/index";
 import {MODAL_DIRECTIVES} from "./modal/index";
 import {NAVIGATION_DIRECTIVES} from "./nav/index";
 import {STACK_VIEW_DIRECTIVES} from "./stack-view/index";
@@ -25,6 +26,7 @@ import {ClrResponsiveNavigationService} from "./nav/clrResponsiveNavigationServi
         CODE_HIGHLIGHT_DIRECTIVES,
         DROPDOWN_DIRECTIVES,
         LAYOUT_DIRECTIVES,
+        INPUTFIELDS_DIRECTIVES,
         MODAL_DIRECTIVES,
         NAVIGATION_DIRECTIVES,
         STACK_VIEW_DIRECTIVES,
@@ -37,6 +39,7 @@ import {ClrResponsiveNavigationService} from "./nav/clrResponsiveNavigationServi
         CODE_HIGHLIGHT_DIRECTIVES,
         DROPDOWN_DIRECTIVES,
         LAYOUT_DIRECTIVES,
+        INPUTFIELDS_DIRECTIVES,
         MODAL_DIRECTIVES,
         NAVIGATION_DIRECTIVES,
         STACK_VIEW_DIRECTIVES,

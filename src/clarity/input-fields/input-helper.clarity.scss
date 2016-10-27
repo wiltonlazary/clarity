@@ -1,0 +1,15 @@
+@import "../utils/variables.clarity";
+
+.input-helper{
+    position: absolute;
+    min-width: $clr_baselineRem_6;
+    left: 0;
+    bottom: -1*rem(16/$clr-rem-denominator);
+    font-size: rem(12/$clr-rem-denominator);
+    font-weight: $clr-typography-lightfont;
+    color: $gray-dark-midtone;
+    margin: 0 0 0 $clr_baselineRem_0_25;
+}
+
+
+

@@ -1,0 +1,52 @@
+<form>
+    <section class="form-block">
+        <label>Masked Input</label>
+        <div class="form-group">
+            <label for="maskedInputIpAddress">IP address</label>
+            <input id="maskedInputUSTelephone" type="text" [clrMask]="usTelephoneInputMask" placeholder="(987) 654-3210">
+        </div>
+        <div class="form-group">
+            <label for="maskedInputIpAddress">IP address</label>
+            <input id="maskedInputIpAddress" type="text" [clrMask]="ipAddressInputMask" placeholder="255.255.255.255">
+        </div>
+        <div class="form-group">
+            <label for="telephoneNumberTest1">Telephone Number Test 1</label>
+            <clr-input-wrapper [clrInvalidEntry]="testTelephoneInputMask.invalid">
+                <input id="telephoneNumberTest1" name="testModel1" type="text" placeholder="(987) 654-3210"
+                       [(ngModel)]="testModel"
+                       [clrMask]="testTelephoneInputMask">
+                <clr-input-helper [clrShowInputHelper]="!testTelephoneInputMask.isInputEmpty">
+                    Example: (987) 654-3210
+                </clr-input-helper>
+            </clr-input-wrapper>
+        </div>
+        <div class="form-group">
+            <label for="telephoneNumberTest2">Telephone Number Test 2</label>
+            <clr-input-wrapper>
+                <input name="testModel2" [(ngModel)]="testModel" id="telephoneNumberTest2" type="text"
+                       placeholder="(987) 654-3210">
+                <clr-input-helper *ngIf="testModel" [clrShowInputHelper]="testModel.length>0">
+                    e.g: (987) 654-3210
+                </clr-input-helper>
+            </clr-input-wrapper>
+        </div>
+    </section>
+</form>
+
+<pre>
+<code clr-code-highlight="language-html">
+&lt;form&gt;
+    &lt;section class=&quot;form-block&quot;&gt;
+        &lt;label&gt;Masked Input Fields&lt;/label&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;label&gt;US Telephone&lt;/label&gt;
+            &lt;clr-masked-input [clrMask]=&quot;usTelephoneInputMask&quot;&gt;&lt;/clr-masked-input&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;label&gt;IP address&lt;/label&gt;
+            &lt;clr-masked-input [clrMask]=&quot;ipAddressInputMask&quot;&gt;&lt;/clr-masked-input&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/form&gt;
+</code>
+</pre>

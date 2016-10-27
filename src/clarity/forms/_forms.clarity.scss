@@ -18,7 +18,7 @@ $clr-form-icon-dim: $clr-icon-dimension-sm;
 
 $clr-custom-checkbox-radio-top: ($clr_baselineRem_1 - $clr-checkbox-radio-height) / 2;
 
-//Standard Clarity Input Bottom Border Animation
+//Standard Clarity InputWrapper Bottom Border Animation
 @mixin input-border-bottom-animation($border-color: clr-getColor(light-midtone,action-blues)) {
     // Border-bottom animation on focus
     background: linear-gradient(to bottom, transparent 95%, $border-color 95%);
