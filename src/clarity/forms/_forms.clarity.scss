@@ -3,7 +3,8 @@
 @import "../utils/helpers.clarity";
 @import "../color/color.clarity";
 @import "../utils/layers.clarity";
-@import "../images/icons.clarity";
+@import '../images/icons.clarity';
+@import "../tooltips/tooltips.clarity";
 
 $styledInputs: inputs("text", "password", "number", "email");
 $styledInputs1: inputs("button","submit");
@@ -549,19 +550,19 @@ $clr-custom-checkbox-radio-top: ($clr_baselineRem_1 - $clr-checkbox-radio-height
 
             //Set arrow colors to red :(
             & > .tooltip-content::before, &.tooltip-top-right > .tooltip-content::before {
-                @include vertical-tooltip-arrow-color(top, right, $reds-dark-midtone);
+                @include vertical-tooltip-arrow($tooltip-arrow-height, $tooltip-arrow-width, top, right, $reds-dark-midtone);
             }
 
             &.tooltip-top-left > .tooltip-content::before {
-                @include vertical-tooltip-arrow-color(top, left, $reds-dark-midtone);
+                @include vertical-tooltip-arrow($tooltip-arrow-height, $tooltip-arrow-width, top, left, $reds-dark-midtone);
             }
 
             &.tooltip-bottom-right > .tooltip-content::before {
-                @include vertical-tooltip-arrow-color(bottom, right, $reds-dark-midtone);
+                @include vertical-tooltip-arrow($tooltip-arrow-height, $tooltip-arrow-width, bottom, right, $reds-dark-midtone);
             }
 
             &.tooltip-bottom-left > .tooltip-content::before {
-                @include vertical-tooltip-arrow-color(bottom, left, $reds-dark-midtone);
+                @include vertical-tooltip-arrow($tooltip-arrow-height, $tooltip-arrow-width, bottom, left, $reds-dark-midtone);
             }
 
             &.tooltip-left > input:focus + .tooltip-content {
@@ -570,7 +571,7 @@ $clr-custom-checkbox-radio-top: ($clr_baselineRem_1 - $clr-checkbox-radio-height
                 margin: 0 ($error-icon-margin + $error-icon-width/2) 0 0;
 
                 &::before {
-                    @include horizontal-tooltip-arrow-color(top, left, $reds-dark-midtone);
+                    @include horizontal-tooltip-arrow($tooltip-arrow-height, $tooltip-arrow-width, top, left, $reds-dark-midtone);
                 }
             }
 
@@ -580,7 +581,7 @@ $clr-custom-checkbox-radio-top: ($clr_baselineRem_1 - $clr-checkbox-radio-height
                 margin: 0 0 0 ($error-icon-margin + $error-icon-width/2);
 
                 &::before {
-                    @include horizontal-tooltip-arrow-color(top, right, $reds-dark-midtone);
+                    @include horizontal-tooltip-arrow($tooltip-arrow-height, $tooltip-arrow-width, top, right, $reds-dark-midtone);
                 }
             }
 

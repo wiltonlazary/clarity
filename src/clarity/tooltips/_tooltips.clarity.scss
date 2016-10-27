@@ -9,9 +9,20 @@ $tooltip-font-color: clr-getColor(lightest);
 $tooltip-background-color: clr-getColor(black);
 $tooltip-default-width: baselineRem(10);
 $margin-value: $clr_baselineRem_0_25;
-$arrow-height: $clr_baselineRem_0_25;
-$arrow-width: baselineRem(5/24); //I wanted the arrow width to be 9. If I use 4.5/24 it still rounds up to 10.
-$tooltip-adjusted-margin: $margin-value + $arrow-width * 2;
+$tooltip-arrow-height: $clr_baselineRem_0_25;
+$tooltip-arrow-width: baselineRem(5/24); //I wanted the arrow width to be 9. If I use 4.5/24 it still rounds up to 10.
+$tooltip-adjusted-margin: $margin-value + $tooltip-arrow-width * 2;
+
+$signpost-font-color: #565656;
+$signpost-min-width: baselineRem(9);
+$signpost-min-height: baselineRem(3.5);
+$signpost-max-width: baselineRem(15);
+$signpost-max-height: baselineRem(21);
+$signpost-background-color: clr-getColor(white);
+$signpost-border-color: #9A9A9A;
+$signpost-border-width: baselineRem(1/24);
+$signpost-arrow-height: $clr_baselineRem_0_25;
+$signpost-arrow-width: $clr_baselineRem_0_25;
 
 @mixin common-tooltip-styles {
     @include clr-getTypePropertiesForDomElement(tooltip_text, (font-size, font-weight, letter-spacing));
@@ -25,7 +36,39 @@ $tooltip-adjusted-margin: $margin-value + $arrow-width * 2;
     width: $tooltip-default-width;
 }
 
-@mixin vertical-tooltip-generator($dirA:top, $dirB:right) {
+@mixin vertical-tooltip-arrow($arrow-height: $tooltip-arrow-height, $arrow-width: $tooltip-arrow-width, $dirA:top, $dirB:right, $color:#000000) {
+  $oppA: map-get($opp-directions, $dirA);
+  $oppB: map-get($opp-directions, $dirB);
+
+  position: absolute;
+  #{$oppA}: -1 * $arrow-width * 2 + 1;
+  #{$oppB}: 0;
+  #{$dirA}: auto;
+  #{$dirB}: auto;
+  content: '';
+  border-#{$oppB}: $arrow-height solid $color;
+  border-#{$dirA}: $arrow-width solid $color;
+  border-#{$dirB}: $arrow-height solid transparent;
+  border-#{$oppA}: $arrow-width solid transparent;
+}
+
+@mixin horizontal-tooltip-arrow($arrow-height: $tooltip-arrow-height, $arrow-width: $tooltip-arrow-width, $dirA:top, $dirB:right, $color:#000000) {
+  $oppA: map-get($opp-directions, $dirA);
+  $oppB: map-get($opp-directions, $dirB);
+
+  position: absolute;
+  #{$dirA}: 0;
+  #{$oppB}: -1 * $arrow-width * 2 + 1;
+  #{$oppA}: auto;
+  #{$dirB}: auto;
+  content: '';
+  border-#{$dirA}: $arrow-height solid $color;
+  border-#{$dirB}: $arrow-width solid $color;
+  border-#{$oppA}: $arrow-height solid transparent;
+  border-#{$oppB}: $arrow-width solid transparent;
+}
+
+@mixin vertical-tooltip-generator($arrow-height: $tooltip-arrow-height, $arrow-width: $tooltip-arrow-width, $dirA:top, $dirB:right) {
     $oppA: map-get($opp-directions,$dirA);
     $oppB: map-get($opp-directions,$dirB);
 
@@ -38,23 +81,14 @@ $tooltip-adjusted-margin: $margin-value + $arrow-width * 2;
     #{$dirB}: auto;
 
     border-#{$oppA}-#{$oppB}-radius: 0;
-    margin-#{$oppA}: $tooltip-adjusted-margin;
+    margin-#{$oppA}: $margin-value + $arrow-width * 2;
 
     &::before {
-        position: absolute;
-        #{$oppA}: -1 * $arrow-width * 2 + 1;
-        #{$oppB}: 0;
-        #{$dirA}: auto;
-        #{$dirB}: auto;
-        content: '';
-        border-#{$oppB}: $arrow-height solid $tooltip-background-color;
-        border-#{$dirA}: $arrow-width solid $tooltip-background-color;
-        border-#{$dirB}: $arrow-height solid transparent;
-        border-#{$oppA}: $arrow-width solid transparent;
+        @include vertical-tooltip-arrow($arrow-height, $arrow-width, $dirA, $dirB, $tooltip-background-color);
     }
 }
 
-@mixin horizontal-tooltip-generator($dirA:right) {
+@mixin horizontal-tooltip-generator($arrow-height: $tooltip-arrow-height, $arrow-width: $tooltip-arrow-width, $dirA: right) {
     $oppA: map-get($opp-directions,$dirA);
 
     position: absolute;
@@ -66,34 +100,57 @@ $tooltip-adjusted-margin: $margin-value + $arrow-width * 2;
     @include common-tooltip-styles;
 
     border-top-#{$oppA}-radius: 0;
-    margin-#{$oppA}: $tooltip-adjusted-margin;
+    margin-#{$oppA}: $margin-value + $arrow-width * 2;
 
     &::before {
-        position: absolute;
-        top: 0;
-        #{$oppA}: -1 * $arrow-width * 2 + 1;
-        bottom: auto;
-        #{$dirA}: auto;
-        content: '';
-        border-top: $arrow-height solid $tooltip-background-color;
-        border-#{$dirA}: $arrow-width solid $tooltip-background-color;
-        border-bottom: $arrow-height solid transparent;
-        border-#{$oppA}: $arrow-width solid transparent;
+        @include horizontal-tooltip-arrow($arrow-height, $arrow-width, top, $dirA, $tooltip-background-color);
     }
 }
 
 @include exports('tooltips.clarity') {
-    .tooltip {
+      .tooltip, .signpost {
         display: inline-block;
         position: relative;
         text-align: left;
         overflow: visible;
 
-        & > .tooltip-content {
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s linear;
-            z-index: map-get($clr-layers, tooltips);
+        & > .tooltip-content, & > .signpost-content {
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.3s linear;
+          z-index: map-get($clr-layers, tooltips);
+        }
+
+        & > .signpost-content {
+          border: $signpost-border-width solid #9a9a9a;
+          min-height: $signpost-min-height;
+          max-height: $signpost-max-height;
+
+          .signpost-body {
+            overflow-y: auto;
+            padding:0 baselineRem(0.75);
+            max-height: $signpost-max-height - baselineRem(2);
+
+            .signpost-title {
+              padding: 0;
+              font-size: rpx(18);
+              font-weight: map-get($clr-font-weights,light);
+              line-height: baselineRem(1);
+            }
+
+            .signpost-img {
+              border: $signpost-border-width solid #9a9a9a;
+              border-radius: baselineRem(0.125);
+              max-width: 100%;
+              vertical-align: middle;
+            }
+
+            & > * {
+              margin: rpx(3) 0;
+            }
+
+            @extend %clr-container;
+          }
         }
 
         //Needed for IE10. Cannot add styles directly to &:hover::after,&:hover::before before adding styles to &:hover.
@@ -101,35 +158,40 @@ $tooltip-adjusted-margin: $margin-value + $arrow-width * 2;
             background: url("data:image/svg+xml;charset=UTF-8,%3Csvg+xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22+width%3D%221%22+height%3D%221%22+viewBox%3D%220+0+1+1%22%3E%3Ctitle%3Etransparent+bcg%3C%2Ftitle%3E%3C%2Fsvg%3E");
         }
 
-        &:hover > .tooltip-content {
-            visibility: visible;
-            opacity: 1;
+        &:hover > .tooltip-content, &:hover > .signpost-content, & > .open {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        &:hover > .signpost-content {
+          min-height: $signpost-min-height;
+          max-height: $signpost-max-height;
         }
 
         //Tooltip directions
         //Default Tooltip - Top Right
         & > .tooltip-content, &.tooltip-top-right > .tooltip-content {
-            @include vertical-tooltip-generator(top, right);
+          @include vertical-tooltip-generator($tooltip-arrow-height, $tooltip-arrow-width, top, right);
         }
 
         &.tooltip-top-left > .tooltip-content {
-            @include vertical-tooltip-generator(top, left);
+          @include vertical-tooltip-generator($tooltip-arrow-height, $tooltip-arrow-width, top, left);
         }
 
         &.tooltip-bottom-right > .tooltip-content {
-            @include vertical-tooltip-generator(bottom, right);
+          @include vertical-tooltip-generator($tooltip-arrow-height, $tooltip-arrow-width, bottom, right);
         }
 
         &.tooltip-bottom-left > .tooltip-content {
-            @include vertical-tooltip-generator(bottom, left);
+          @include vertical-tooltip-generator($tooltip-arrow-height, $tooltip-arrow-width, bottom, left);
         }
 
         &.tooltip-right > .tooltip-content {
-            @include horizontal-tooltip-generator(right);
+          @include horizontal-tooltip-generator($tooltip-arrow-height, $tooltip-arrow-width, right);
         }
 
         &.tooltip-left > .tooltip-content {
-            @include horizontal-tooltip-generator(left);
+          @include horizontal-tooltip-generator($tooltip-arrow-height, $tooltip-arrow-width, left);
         }
 
         //Tooltips Size
@@ -147,6 +209,211 @@ $tooltip-adjusted-margin: $margin-value + $arrow-width * 2;
 
         &.tooltip-lg > .tooltip-content {
             width: baselineRem(15);
+        }
+
+        @mixin signpost-content-styles($dirA:top) {
+            $oppA: map-get($opp-directions, $dirA);
+
+            padding: baselineRem(1) $clr_baselineRem_0_25;
+            color: $signpost-font-color;
+            background: $signpost-background-color;
+            margin-#{$oppA}: $margin-value + $signpost-arrow-width * 2;
+        }
+
+        //Signpost directions
+        //Default Signpost - Right
+        &.signpost-right > .signpost-content, .signpost-content {
+            @include horizontal-tooltip-generator($signpost-arrow-height, $signpost-arrow-width, right);
+            @include signpost-content-styles(right);
+            border-radius: baselineRem(0.125); // overwrite the corner that's been set to zero by generator
+            transform: translateY(-50%);
+
+            &::before {
+                @include horizontal-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, right, $signpost-border-color);
+                transform: translateY(-50%);
+                top: 50%;
+                margin-top: $signpost-arrow-width;
+                left: - ($signpost-arrow-width * 2);
+            }
+
+            &::after {
+                @include horizontal-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, right, $signpost-background-color);
+                transform: translateY(-50%);
+                top: 50%;
+                margin-top: $signpost-arrow-width + 1;
+                left: - ($signpost-arrow-width * 2) + 2;
+            }
+        }
+
+        &.signpost-top > .signpost-content {
+            @include vertical-tooltip-generator($signpost-arrow-height, $signpost-arrow-width, top, right);
+            @include signpost-content-styles(top);
+            border-radius: baselineRem(0.125); // overwrite the corner that's been set to zero by generator
+            transform: translateX(-50%);
+
+            &::before {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, right, $signpost-border-color);
+                bottom: -1 * $signpost-arrow-width * 2;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-left: $signpost-arrow-width;
+                margin-top: 0;
+            }
+
+            &::after {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, right, $signpost-background-color);
+                left: 50%;
+                transform: translateX(-50%);
+                margin-left: $signpost-arrow-width + 1;
+                margin-top: 0;
+                bottom: - ($signpost-arrow-width * 2) + 2;
+
+            }
+        }
+
+        &.signpost-top-right > .signpost-content {
+            @include vertical-tooltip-generator($signpost-arrow-height, $signpost-arrow-width, top, right);
+            @include signpost-content-styles(top);
+            transform: none; // overwrite the transform set by the default .signpost-content
+
+            &::before {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, right, $signpost-border-color);
+                transform: none; // overwrite the transform set by the default .signpost-content
+                margin-left: - $signpost-border-width;
+                bottom: -1 * $signpost-arrow-width * 2;
+                margin-top: 0;
+            }
+
+            &::after {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, right, $signpost-background-color);
+                transform: none; // overwrite the transform set by the default .signpost-content
+                margin-top: 0;
+                bottom: - ($signpost-arrow-width * 2) + 2;
+            }
+        }
+
+        &.signpost-top-left > .signpost-content {
+            @include vertical-tooltip-generator($signpost-arrow-height, $signpost-arrow-width, top, left);
+            @include signpost-content-styles(top);
+            transform: none; // overwrite the transform set by the default .signpost-content
+
+            &::before {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, left, $signpost-border-color);
+                transform: none; // overwrite the transform set by the default .signpost-content
+                margin-right: - $signpost-border-width;
+                bottom: -1 * $signpost-arrow-width * 2;
+                margin-top: 0;
+            }
+
+            &::after {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, left, $signpost-background-color);
+                transform: none; // overwrite the transform set by the default .signpost-content
+                margin-top: 0;
+                bottom: - ($signpost-arrow-width * 2) + 2;
+            }
+        }
+
+        &.signpost-bottom > .signpost-content {
+            @include vertical-tooltip-generator($signpost-arrow-height, $signpost-arrow-width, bottom);
+            @include signpost-content-styles(bottom);
+            border-radius: baselineRem(0.125); // overwrite the corner that's been set to zero by generator
+            transform: translateX(-50%);
+
+            &::before {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, bottom, right, $signpost-border-color);
+                top: -1 * $signpost-arrow-width * 2;
+                transform: translateX(-50%);
+                left: 50%;
+                margin-left: $signpost-arrow-width;
+                margin-top: 0;
+            }
+
+            &::after {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, bottom, right, $signpost-background-color);
+                transform: translateX(-50%);
+                left: 50%;
+                margin-left: $signpost-arrow-width + 1;
+                margin-top: 0;
+                top: - ($signpost-arrow-width * 2) + 2;
+            }
+        }
+
+        &.signpost-bottom-right > .signpost-content {
+            @include vertical-tooltip-generator($signpost-arrow-height, $signpost-arrow-width, bottom, right);
+            @include signpost-content-styles(bottom);
+            transform: none; // overwrite the transform set by the default .signpost-content
+
+            &::before {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, bottom, right, $signpost-border-color);
+                transform: none; // overwrite the transform set by the default .signpost-content
+                margin-left: - $signpost-border-width;
+                top: -1 * $signpost-arrow-width * 2;
+                margin-top: 0;
+            }
+
+            &::after {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, bottom, right, $signpost-background-color);
+                transform: none; // overwrite the transform set by the default .signpost-content
+                margin-top: 0;
+                top: - ($signpost-arrow-width * 2) + 2;
+            }
+        }
+
+        &.signpost-bottom-left > .signpost-content {
+            @include vertical-tooltip-generator($signpost-arrow-height, $signpost-arrow-width, bottom, left);
+            @include signpost-content-styles(bottom);
+            transform: none; // overwrite the transform set by the default .signpost-content
+
+            &::before {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, bottom, left, $signpost-border-color);
+                transform: none; // overwrite the transform set by the default .signpost-content
+                margin-right: - $signpost-border-width;
+                top: -1 * $signpost-arrow-width * 2;
+                margin-top: 0;
+            }
+
+            &::after {
+                @include vertical-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, bottom, left, $signpost-background-color);
+                transform: none; // overwrite the transform set by the default .signpost-content
+                margin-top: 0;
+                top: - ($signpost-arrow-width * 2) + 2;
+            }
+        }
+
+        &.signpost-left > .signpost-content {
+            @include horizontal-tooltip-generator($signpost-arrow-height, $signpost-arrow-width, left);
+            @include signpost-content-styles(left);
+            border-radius: baselineRem(0.125); // overwrite the corner that's been set to zero by generator
+            transform: translateY(-50%);
+
+            &::before {
+                @include horizontal-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, left, $signpost-border-color);
+                transform: translateY(-50%);
+                top: 50%;
+                right: - ($signpost-arrow-width * 2);
+                margin-top: $signpost-arrow-width;
+            }
+
+            &::after {
+                @include horizontal-tooltip-arrow($signpost-arrow-height, $signpost-arrow-width, top, left, $signpost-background-color);
+                transform: translateY(-50%);
+                top: 50%;
+                margin-top: $signpost-arrow-width + 1;
+                right: - ($signpost-arrow-width * 2) + 2;
+            }
+        }
+
+        //Signpost Size
+        &.signpost-sm > .signpost-content {
+            width: $signpost-min-width;
+        }
+
+        &.signpost-md > .signpost-content {
+            width: ($signpost-min-width + $signpost-max-width) / 2;
+        }
+
+        &.signpost-lg > .signpost-content {
+            width: $signpost-max-width;
         }
     }
 
@@ -173,8 +440,8 @@ $tooltip-adjusted-margin: $margin-value + $arrow-width * 2;
     }
 
     //Icons
-    .tooltip {
-        & > .clr-icon{
+    .tooltip, .signpost {
+        & > .clr-icon {
             margin-right: 0;
         }
     }

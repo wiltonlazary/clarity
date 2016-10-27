@@ -1,0 +1,18 @@
+@import "../../utils/code";
+
+.clr-example{
+
+    &.squeeze{
+        padding: 24px;
+    }
+
+    &.example-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.example-column{
+            flex-direction: column;
+        }
+    }
+}
