@@ -1,0 +1,70 @@
+<div [ngSwitch]="placeholderType" class="clr-placeholder">
+    <div *ngSwitchWhen="'paragraph'" class="paragraph-container">
+        <div class="paragraph">
+            <div style="width: 100%;"></div>
+            <div style="width: 90%;"></div>
+            <div style="width: 85%;"></div>
+            <div style="width: 95%;"></div>
+            <div style="width: 50%;"></div>
+        </div>
+        <div class="paragraph">
+            <div style="width: 100%;"></div>
+            <div style="width: 85%;"></div>
+            <div style="width: 90%;"></div>
+            <div style="width: 60%;"></div>
+        </div>
+    </div>
+    <div *ngSwitchWhen="'paragraph-image'">
+        <div class="paragraph image">
+            <div class="icon pull-left"></div>
+            <div style="width: calc(100% - 90px);"></div>
+            <div style="width: calc(90% - 90px);"></div>
+            <div style="width: calc(95% - 90px);"></div>
+            <div style="width: 80%;"></div>
+            <div style="width: 90%;"></div>
+            <div style="width: 40%;"></div>
+        </div>
+        <div class="paragraph">
+            <div style="width: 100%;"></div>
+            <div style="width: 85%;"></div>
+            <div style="width: 90%;"></div>
+            <div style="width: 60%;"></div>
+        </div>
+    </div>
+    <ul *ngSwitchWhen="'bar-chart'" class="bar-chart">
+        <li><span style="height:5%"></span></li>
+        <li><span style="height:70%"></span></li>
+        <li><span style="height:90%"></span></li>
+        <li><span style="height:50%"></span></li>
+        <li><span style="height:65%"></span></li>
+        <li><span style="height:15%"></span></li>
+        <li><span style="height:45%"></span></li>
+    </ul>
+    <div *ngSwitchWhen="'pie-chart'" class="pie-chart">
+        <div class="pie" data-start="0" data-value="30"></div>
+        <div class="pie highlight" data-start="30" data-value="30"></div>
+        <div class="pie" data-start="60" data-value="40"></div>
+        <div class="pie big" data-start="100" data-value="260"></div>
+    </div>
+    <div *ngSwitchWhen="'animated'" class="placeholder-item">
+        <div class="animated-background">
+            <div class="header top"></div>
+            <div class="header left"></div>
+            <div class="header right"></div>
+            <div class="header bottom"></div>
+            <div class="subheader left"></div>
+            <div class="subheader right"></div>
+            <div class="subheader bottom"></div>
+            <div class="content top"></div>
+            <div class="content first-end"></div>
+            <div class="content second-line"></div>
+            <div class="content second-end"></div>
+            <div class="content third-line"></div>
+            <div class="content third-end"></div>
+            <div class="content fourth-line"></div>
+            <div class="content fourth-end"></div>
+            <div class="content fifth-line"></div>
+            <div class="content fifth-end"></div>
+        </div>
+    </div>
+</div>

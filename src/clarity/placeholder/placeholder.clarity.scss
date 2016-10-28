@@ -1,0 +1,263 @@
+@import "../utils/variables.clarity";
+@import "../color/color.clarity";
+
+$clr-placeholder-height: rpx(125);
+$clr-placeholder-width: rpx(425);
+$clr-placeholder-animation-speed: 1s;
+$clr-animation-color: #e6e6e6;
+
+%paragraph-formatting {
+  line-height: baselineRem(1);
+  margin-bottom: 0;
+}
+
+.clr-placeholder {
+  min-height: $clr-placeholder-height;
+  margin-bottom: baselineRem(1);
+
+  .paragraph {
+    @extend %paragraph-formatting;
+    float: left;
+    width: 100%;
+    div {
+      background-color: $clr-light-gray;
+      // height: rpx(14);
+      height: map-get($clr-2, font-size);
+      margin-bottom: baselineRem(.5);
+      float: left;
+    }
+    &:not(:first-child) {
+      margin-top: baselineRem(1)
+    }
+  }
+  .paragraph.image {
+    .icon {
+      margin: 0 baselineRem(.5) 0 0;
+      width: rpzx(63);
+      height: rpx(63);
+      background-color: $clr-light-gray;
+    }
+  }
+  .bar-chart {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: rpx(250);
+    background-size: 100% rpx(50);
+    background-position: left top;
+    border-left: 1px solid $clr-light-gray;
+    border-bottom: 1px solid $clr-light-gray;
+    li {
+      position: relative;
+      display: table-cell;
+      vertical-align: bottom;
+      height: rpx(200);
+    }
+    span {
+      margin: 0 1em;
+      display: block;
+      background: $clr-light-gray;
+      &:before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        padding: 5px 1em 0;
+        display: block;
+      }
+    }
+  }
+  .pie-chart {
+    position: relative;
+    height: rpx(230);
+    .pie {
+      position: absolute;
+      width: rpx(100);
+      height: rpx(200);
+      overflow: hidden;
+      left: rpx(150);
+      transform-origin: left center;
+    }
+    .pie.big {
+      width: rpx(200);
+      height: rpx(200);
+      left: rpx(50);
+      transform-origin: center center;
+    }
+    .pie:BEFORE {
+      content: "";
+      position: absolute;
+      width: rpx(100);
+      height: rpx(200);
+      left: rpx(-1 * 100);
+      border-radius: rpx(100) 0 0 rpx(100);
+      transform-origin: right center;
+    }
+    .pie.big:BEFORE {
+      left: rpx(0);
+    }
+    .pie.big:AFTER {
+      content: "";
+      position: absolute;
+      width: rpx(100);
+      height: rpx(200);
+      left: rpx(100);
+      border-radius: 0 rpx(100) rpx(100) 0;
+    }
+    .pie:nth-of-type(1):BEFORE,
+    .pie:nth-of-type(1):AFTER {
+      background-color: $clr-light-gray;
+    }
+    .pie:nth-of-type(2):AFTER,
+    .pie:nth-of-type(2):BEFORE {
+      background-color: $clr-animation-color;
+    }
+    .pie:nth-of-type(3):AFTER,
+    .pie:nth-of-type(3):BEFORE {
+      background-color: $gray-lighter;
+    }
+    .pie:nth-of-type(4):AFTER,
+    .pie:nth-of-type(4):BEFORE {
+      background-color: $clr-lighter-midtone-gray;
+    }
+    .pie[data-start="30"] {
+      transform: rotate(30deg);
+    }
+    .pie[data-start="60"] {
+      transform: rotate(60deg);
+    }
+    .pie[data-start="100"] {
+      transform: rotate(100deg);
+    }
+    .pie[data-value="30"]:BEFORE {
+      transform: rotate(31deg);
+    }
+    .pie[data-value="40"]:BEFORE {
+      transform: rotate(41deg);
+    }
+    .pie[data-value="260"]:BEFORE {
+      transform: rotate(260deg);
+    }
+  }
+}
+
+// .clr-placeholder {
+//     .placeholder-item {
+//         background: transparent;
+//         padding: 0 rpx(20);
+//         min-height: $clr-placeholder-height + rpx(25);
+//         .animated-background {
+//             position: relative;
+//             height: $clr-placeholder-height;
+//             animation-duration: $clr-placeholder-animation-speed;
+//             animation-fill-mode: forwards;
+//             animation-iteration-count: infinite;
+//             animation-name: placeHolderSlide;
+//             animation-timing-function: linear;
+//             background: $clr-light-gray;
+//             background: linear-gradient(to right, $clr-light-gray 8%, $clr-animation-color 18%, $clr-light-gray 33%);
+//             background-size: rpx(800) rpx(104);
+//             > div {
+//                 background: $clr-white;
+//                 position: absolute;
+//                 box-sizing: border-box;
+//             }
+//         }
+//         .header.top,
+//         .header.bottom,
+//         .subheader.bottom {
+//             top: 0;
+//             left: rpx(50);
+//             right: 0;
+//             height: rpx(5);
+//         }
+//         .header.left,
+//         .subheader.left,
+//         .header.right,
+//         .subheader.right {
+//             top: rpx(4);
+//             left: rpx(50);
+//             height: rpx(14);
+//             width: rpx(10);
+//         }
+//         .header.bottom {
+//             top: rpx(18);
+//             height: rpx(6);
+//         }
+//         .subheader.left,
+//         .subheader.right {
+//             top: rpx(24);
+//             height: rpx(11);
+//         }
+//         .header.right,
+//         .subheader.right {
+//             width: auto;
+//             left: rpx(300);
+//             right: 0;
+//         }
+//         .subheader.right {
+//             left: rpx(230);
+//         }
+//         .subheader.bottom {
+//             top: rpx(35);
+//             height: rpx(15);
+//         }
+//         .content {
+//             top: rpx(50);
+//             left: 0;
+//             right: 0;
+//             height: rpx(6);
+//         }
+//         .content.top {
+//             height: rpx(10);
+//         }
+//         .content.first-end,
+//         .content.fourth-end,
+//         .content.fifth-end,
+//         .content.second-end,
+//         .content.third-end {
+//             width: auto;
+//             left: rpx(380);
+//             right: 0;
+//             top: rpx(60);
+//             height: rpx(9);
+//         }
+//         .content.second-line {
+//             top: rpx(68);
+//         }
+//         .content.second-end {
+//             left: rpx(420);
+//             top: rpx(74);
+//         }
+//         .content.third-line {
+//             top: rpx(82);
+//         }
+//         .content.third-end {
+//             left: rpx(400);
+//             top: rpx(88);
+//         }
+//         .content.fourth-line {
+//             top: rpx(96);
+//         }
+//         .content.fourth-end {
+//             left: rpx(460);
+//             top: rpx(102);
+//         }
+//         .content.fifth-line {
+//             top: rpx(110);
+//         }
+//         .content.fifth-end {
+//             left: rpx(250);
+//             top: rpx(116);
+//         }
+//     }
+// }
+// @keyframes placeHolderSlide {
+//     0% {
+//         background-position: (-1 * $clr-placeholder-width) 0
+//     }
+//     100% {
+//         background-position: $clr-placeholder-width 0
+//     }
+// }
+>>>>>>> 8aef273... Initial for placeholder

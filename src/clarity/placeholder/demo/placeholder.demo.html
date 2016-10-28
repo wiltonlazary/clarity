@@ -1,0 +1,84 @@
+<div id="placeholderDemo">
+    <h2>Placeholders</h2>
+    <section>
+        <p>
+            Placeholders represent content that is waiting to be loaded, when the content request is complete the placeholder disappears and the content appears in its place. To users, this makes the content seemingly load faster as well as shows them where the content will be rendered.
+        </p>
+        <div class="clr-example">
+            <h6>Paragraph</h6>
+            <clr-placeholder clrType="paragraph"></clr-placeholder>
+        </div>
+        <div class="clearfix"></div>
+        <div class="clr-example">
+            <h6>Paragraph with Image</h6>
+            <clr-placeholder clrType="paragraph-image"></clr-placeholder>
+        </div>
+        <div class="clearfix"></div>
+        <div class="clr-example">
+            <h6>Bar Chart</h6>
+            <clr-placeholder clrType="bar-chart"></clr-placeholder>
+        </div>
+        <div class="clearfix"></div>
+        <div class="clr-example">
+            <h6>Pie Chart</h6>
+            <clr-placeholder clrType="pie-chart"></clr-placeholder>
+
+        </div>
+        <div class="clearfix"></div>
+        <div>
+            <h6>Animated</h6>
+            <div class="card card-block">
+                <clr-placeholder *ngIf="!isLoaded" clrType="paragraph"></clr-placeholder>
+                <div *ngIf="isLoaded">
+                    <div class="group">
+                        <img class="icon" />
+                        <div class="description">
+                            <span class="title">Project A</span>
+                            <span>Owner: John Doe</span>
+                        </div>
+                    </div>
+                    <div class="card-divider"></div>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <a class="card-link">Button One</a>
+                    <a class="card-link">Button Two</a>
+                    <div class="card-overflow-menu">
+                        <a class="card-link">Actions</a>
+                        <div class="menu">
+                            <a class="menu-item">Change Lease</a>
+                            <a class="menu-item">Destroy</a>
+                            <a class="menu-item">Power Off</a>
+                            <a class="menu-item">Reboot</a>
+                            <a class="menu-item">Reconfigure</a>
+                            <a class="menu-item">Reprovision</a>
+                            <a class="menu-item">Shutdown</a>
+                            <a class="menu-item">Suspend</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-outline" (click)="loadContent()">{{ isLoaded ? "Show Placeholder" : "Load Content" }}</button>
+        </div>
+        <div class="indent">
+            <h4>Example</h4>
+            <div class="clr-example">
+                <p>Register the <code>Placeholder</code> directive in your component. Then add the markup.</p>
+                <pre class="code-card">
+  import {Placeholder} from 'clarity-angular/placeholder/placeholder;
+
+  @Component({
+      ...
+      directives: [Placeholder],
+      ...
+  });
+  export class YourComponent{
+
+  }
+                </pre>
+                <p>Add directive to template</p>
+                <pre class="code-card">
+&lt;clr-placeholder clr-type="paragraph" &gt;&lt;/clr-placeholder&gt;
+                </pre>
+            </div>
+        </div>
+    </section>
+</div>
