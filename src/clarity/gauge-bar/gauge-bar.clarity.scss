@@ -1,0 +1,42 @@
+@import "../utils/variables.clarity";
+@import "../utils/mixins.clarity";
+@import "../color/color.clarity";
+@import "../typography/typography.clarity";
+
+.gauge-bar-container {
+    width: 100%
+ }
+
+.gauge-bar-block {
+    height: 13px;
+    display: flex;
+    background-color: #EEE;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #CCC;
+}
+
+.gauge-bar {
+    flex: 0 0 auto;
+    width: 0;
+    background: transparent;
+    position: relative;
+    border-radius: 3px 0 0 3px;
+}
+
+.gauge-bar-fill {
+    flex: 1 1 auto;
+    border-radius: 0 3px 3px 0;
+}
+
+.gauge-bar-plus {
+    flex: 0 0 auto;
+    width: 0;
+    border-radius: 0 3px 3px 0;
+    opacity: 0.5;
+    border-left: 2px solid #FFF;
+    height: 100%;
+}
+
+.gauge-bar-animate {
+    transition: width 1s ease;
+}

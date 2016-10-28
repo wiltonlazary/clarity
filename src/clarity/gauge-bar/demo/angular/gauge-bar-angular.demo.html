@@ -1,0 +1,89 @@
+<h2>Angular Component</h2>
+
+<div>
+Clarity bar gauges.
+</div>
+
+<h3>Summary of Options</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="left">Input</th>
+            <th class="left">Values</th>
+            <th>Default</th>
+            <th class="left">Effect</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="left">[clrBarGaugeValueOne]</td>
+            <td class="left">integer 0 &lt;= x &lt;= 100</td>
+            <td>0</td>
+            <td class="left">-</td>
+        </tr>
+        <tr>
+            <td class="left">[clrBarGaugeValueTwo]</td>
+            <td class="left">integer 0 &lt;= x &lt;= 100</td>
+            <td>0</td>
+            <td class="left">Will only be visible if valueTwo > valueOne.</td>
+        </tr>
+        <tr>
+            <td class="left">[clrBarGaugeColorOne]</td>
+            <td class="left">string</td>
+            <td>rgb(0, 106, 144)</td>
+            <td class="left">-</td>
+        </tr>
+        <tr>
+            <td class="left">[clrBarGaugeColorOne]</td>
+            <td class="left">string</td>
+            <td>rgb(157, 197, 217)</td>
+            <td class="left">-</td>
+        </tr>
+        <tr>
+            <td class="left">[clrBarGaugeBackgroundColor]</td>
+            <td class="left">string</td>
+            <td>rgb(224, 224, 224)</td>
+            <td class="left">The background color of the remainder of the bar.</td>
+        </tr>
+        <tr>
+            <td class="left">[clrBarGaugeAnimate]</td>
+            <td class="left">boolean</td>
+            <td>true</td>
+            <td class="left">Whether or not the gauge bars should animate when values change</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Examples</h4>
+<h6>1. Bar Gauge</h6>
+
+<div style="display: flex; justify-content: space-around;">
+   <div class="clr-example">
+      <clr-gauge-bar
+         [clrBarGaugeColorOne]="colorOne"
+         [clrBarGaugeColorTwo]="colorTwo"
+         [clrBarGaugeBackgroundColor]="backgroundColor"
+         [clrBarGaugeAnimate]="animate"
+         [clrBarGaugeValueOne]="valueOne"
+         [clrBarGaugeValueTwo]="valueTwo"></clr-gauge-bar>
+   </div>
+</div>
+
+<div style="display: flex; justify-content: space-around; margin-top: 20px;">
+   <div>
+      Value one: <input type="number" [(ngModel)]="valueOne"/> Color: <input type="text" [(ngModel)]="colorOne"/><br />
+      Value two: <input type="number" [(ngModel)]="valueTwo"/> Color: <input type="text" [(ngModel)]="colorTwo"/><br />
+      Background color: <input type="text" [(ngModel)]="backgroundColor"/><br/>
+      Animate: <input type="checkbox" (change)="animateChange($event)" [checked]="animate" [(ngModel)]="animate"/><br/>
+   </div>
+</div>
+
+<pre><code clr-code-highlight="language-html">
+&lt;clr-gauge-bar
+   [clrBarGaugeAnimate]=&quot;{{animate?'true':'false'}}&quot;
+   [clrBarGaugeColorOne]=&quot;'{{colorOne}}'&quot;
+   [clrBarGaugeColorTwo]=&quot;'{{colorTwo}}'&quot;
+   [clrBarGaugeBackgroundColor]=&quot;'{{backgroundColor}}'&quot;
+   [clrBarGaugeValueOne]=&quot;{{valueOne}}&quot;
+   [clrBarGaugeValueTwo]=&quot;{{valueTwo}}&quot;&gt;&lt;/clr-gauge&gt;
+</code></pre>

@@ -1,0 +1,22 @@
+<div class="gauge-horseshoe animation-start" style="position: relative;">
+    <svg viewBox="0 0 32 32" [style.transform]="svgTransform()">
+        <svg:circle class="bg"
+              r="16" cx="16" cy="16"
+              [style.fill]="backgroundColor"
+              [style.stroke-dasharray]="_bgValue" />
+        <svg:circle *ngIf="_valueTwo" class="two"
+              r="16" cx="16" cy="16"
+              [ngClass]="{'animatable': animate}"
+              [style.stroke]="colorTwo"
+              [style.stroke-dasharray]="_valueTwo" />
+        <svg:circle class="one"
+              r="16" cx="16" cy="16"
+              [ngClass]="{'animatable': animate}"
+              [style.stroke]="colorOne"
+              [style.stroke-dasharray]="_valueOne" />
+        <svg:circle class="middle" r="14" cx="16" cy="16" [style.fill]="backgroundColor" />
+    </svg>
+    <div class="gauge-content">
+        <ng-content></ng-content>
+    </div>
+</div>

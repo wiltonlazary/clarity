@@ -1,0 +1,89 @@
+<h2>Angular Component</h2>
+
+<div>
+Clarity Horseshoe gauges are easily customized using CSS.
+</div>
+
+<h3>Summary of Options</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="left">Input</th>
+            <th class="left">Values</th>
+            <th>Default</th>
+            <th class="left">Effect</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="left">[clrHsGaugeValueOne]</td>
+            <td class="left">integer 0 &lt;= x &lt;= 100</td>
+            <td>0</td>
+            <td class="left">-</td>
+        </tr>
+        <tr>
+            <td class="left">[clrHsGaugeValueTwo]</td>
+            <td class="left">integer 0 &lt;= x &lt;= 100</td>
+            <td>0</td>
+            <td class="left">Will only be visible if valueTwo > valueOne.</td>
+        </tr>
+        <tr>
+            <td class="left">[clrHsGaugeColorOne]</td>
+            <td class="left">string</td>
+            <td>rgb(0, 106, 144)</td>
+            <td class="left">-</td>
+        </tr>
+        <tr>
+            <td class="left">[clrHsGaugeColorOne]</td>
+            <td class="left">string</td>
+            <td>rgb(157, 197, 217)</td>
+            <td class="left">-</td>
+        </tr>
+        <tr>
+            <td class="left">[clrHsGaugeBackgroundColor]</td>
+            <td class="left">string</td>
+            <td>rgb(255, 255, 255)</td>
+            <td class="left">The background color of the central part of the gauge.</td>
+        </tr>
+        <tr>
+            <td class="left">[clrHsGaugeAnimate]</td>
+            <td class="left">boolean</td>
+            <td>true</td>
+            <td class="left">Whether or not the gauge bars should animate when values change</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Examples</h4>
+<h6>1. Horseshoe Gauge</h6>
+
+<div style="display: flex; justify-content: space-around;">
+   <div class="clr-example">
+      <clr-gauge-horseshoe
+         [clrHsGaugeColorOne]="colorOne"
+         [clrHsGaugeColorTwo]="colorTwo"
+         [clrHsGaugeBackgroundColor]="backgroundColor"
+         [clrHsGaugeAnimate]="animate"
+         [clrHsGaugeValueOne]="valueOne"
+         [clrHsGaugeValueTwo]="valueTwo">{{valueOne}}</clr-gauge-horseshoe>
+   </div>
+</div>
+
+<div style="display: flex; justify-content: space-around; margin-top: 30px;">
+   <div>
+      Value one: <input type="number" [(ngModel)]="valueOne"/> Color: <input type="text" [(ngModel)]="colorOne"/><br />
+      Value two: <input type="number" [(ngModel)]="valueTwo"/> Color: <input type="text" [(ngModel)]="colorTwo"/><br />
+      Background color: <input type="text" [(ngModel)]="backgroundColor"/><br/>
+      Animate: <input type="checkbox" (change)="animateChange($event)" [checked]="animate" [(ngModel)]="animate"/><br/>
+   </div>
+</div>
+
+<pre><code clr-code-highlight="language-html">
+&lt;clr-gauge-horseshoe
+      [clrHsGaugeAnimate]=&quot;{{animate?'true':'false'}}&quot;
+      [clrHsGaugeColorOne]=&quot;'{{colorOne}}'&quot;
+      [clrHsGaugeColorTwo]=&quot;'{{colorTwo}}'&quot;
+      [clrHsGaugeBackgroundColor]=&quot;'{{backgroundColor}}'&quot;
+      [clrHsGaugeValueOne]=&quot;{{valueOne}}&quot;
+      [clrHsGaugeValueTwo]=&quot;{{valueTwo}}&quot;&gt;{{valueOne}}&lt;/clr-gauge-horseshoe&gt;
+</code></pre>

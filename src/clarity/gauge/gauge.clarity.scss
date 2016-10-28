@@ -1,0 +1,141 @@
+@import "../utils/variables.clarity";
+@import "../utils/mixins.clarity";
+@import "../color/color.clarity";
+@import "../typography/typography.clarity";
+
+.gauge-container {
+   position: relative;
+   overflow: hidden;
+}
+
+/*
+ * Gauge track color
+ *
+ * TODO: we should make this configurable in the directive
+ */
+.gauge-circle-bg {
+   background-color: #EEE;
+}
+
+/*
+ * Gauge bar
+ */
+.gauge-circle-fill {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   background: transparent;
+   transform: rotate(0deg);
+}
+
+/*
+ * Gauge center area
+ */
+.gauge-circle-inner {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+/*
+ * Gauge caption
+ */
+.gauge-circle-caption {
+   text-align: center;
+}
+
+/*
+ * Small size gauge sizing
+ */
+.gauge-small {
+   .gauge-container {
+      width: 100px;
+      height: 50px;
+   }
+   .gauge-circle-fill {
+      height: 100px;
+      border-radius: 50px;
+      clip: rect(50px, 100px, 100px, 0);
+   }
+   .gauge-circle-bg {
+      height: 100px;
+      border-radius: 50px;
+   }
+   .gauge-circle-inner {
+      width: 90px;
+      height: 90px;
+      border-radius: 45px;
+      margin: 5px;
+   }
+   .gauge-circle-caption {
+      margin-top: 15px;
+      font-size: 1.0em;
+   }
+}
+
+/*
+ * Medium size gauge sizing
+ */
+.gauge-medium {
+   .gauge-container {
+      width: 130px;
+      height: 65px;
+   }
+   .gauge-circle-fill {
+      height: 130px;
+      border-radius: 130px;
+      clip: rect(65px, 130px, 130px, 0);
+   }
+   .gauge-circle-bg {
+      height: 130px;
+      border-radius: 65px;
+   }
+   .gauge-circle-inner {
+      height: 115px;
+      width: 115px;
+      border-radius: 57.5px;
+      margin: 7.5px;
+   }
+   .gauge-circle-caption {
+      margin-top: 25px;
+      font-size: 1.4em;
+   }
+}
+
+/*
+ * Large size gauge sizing
+ */
+.gauge-large {
+   .gauge-container {
+      width: 260px;
+      height: 130px;
+   }
+   .gauge-circle-fill {
+      height: 260px;
+      border-radius: 130px;
+      clip: rect(130px, 260px, 260px, 0);
+   }
+   .gauge-circle-bg {
+      height: 260px;
+      border-radius: 130px;
+   }
+   .gauge-circle-inner {
+      width: 240px;
+      height: 240px;
+      border-radius: 120px;
+      margin: 10px;
+   }
+   .gauge-circle-caption {
+      margin-top: 60px;
+      font-size: 2.0em;
+   }
+}
+
+.gauge-animate {
+   -webkit-transition: transform 1s ease;
+   -moz-transition: transform 1s ease;
+   -ms-transition: transform 1s ease;
+   -o-transition: transform 1s ease;
+   transition: transform 1s ease;
+}

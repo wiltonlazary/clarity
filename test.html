@@ -1,0 +1,51 @@
+<html>
+   <head>
+      <style type="text/css">
+         svg {
+            transform: rotate(-230deg);
+            border-radius: 50%;
+            background: #CCC;
+            width: 256px; height: 256px;
+         }
+         circle.bg {
+            fill: #CCC;
+         }
+         circle.one {
+            stroke: rgb(0, 106, 144);
+            stroke-width: 32;
+            stroke-dasharray: 38 100;
+            fill: none;
+         }
+         circle.two {
+            stroke: rgb(157, 197, 217);
+            stroke-width: 32;
+            stroke-dasharray: 50 100;
+            fill: none;
+         }
+         circle.middle {
+            fill: rgb(250, 250, 250);
+         }
+         circle.wedge {
+            stroke: rgb(250, 250, 250);
+            stroke-width: 32;
+            stroke-dasharray: 28 100;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            fill: none;
+         }
+      </style>
+   </head>
+
+<body>
+   <div style="position: relative;">
+      <svg viewBox="0 0 32 32">
+         <circle class="bg" r="16" cx="16" cy="16" />
+         <circle class="two" r="16" cx="16" cy="16" />
+         <circle class="one" r="16" cx="16" cy="16" />
+         <circle class="middle" r="14" cx="16" cy="16" />
+         <circle class="wedge" r="16" cx="16" cy="16" />
+      </svg>
+      <div style="position: absolute; top: 50%; margin-top: -12px; left: 0; width: 256px; text-align: center;">38/50</div>
+   </div>
+</body>
+</html>

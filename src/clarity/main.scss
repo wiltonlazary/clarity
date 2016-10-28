@@ -12,6 +12,9 @@
 @import "./typography/typography.clarity"; // depends on colors.clarity, color.clarity, variables.clarity, utilities.clarity
 @import "./buttons/buttons.clarity"; // depends on variables.clarity, mixins.clarity, color.clarity
 @import "./alert/alert.clarity"; // depends on variables.clarity, mixins.clarity, color.clarity, icons.clarity, buttons.clarity
+@import "./gauge/gauge.clarity"; // depends on variables.clarity, mixins.clarity, color.clarity, icons.clarity, buttons.clarity
+@import "./gauge-horseshoe/gauge-horseshoe.clarity"; // depends on variables.clarity, mixins.clarity, color.clarity, icons.clarity, buttons.clarity
+@import "./gauge-bar/gauge-bar.clarity"; // depends on variables.clarity, mixins.clarity, color.clarity, icons.clarity, buttons.clarity
 @import "./buttons/toggles.clarity"; // depends on variables.clarity, mixins.clarity, color.clarity, helpers.clarity
 @import "./list-group/list-group.clarity"; // depends on variables.clarity, mixins.clarity
 @import "./card/card.clarity"; // depends on variables.clarity, mixins.clarity, color.clarity, helpers.clarity, list-group.clarity

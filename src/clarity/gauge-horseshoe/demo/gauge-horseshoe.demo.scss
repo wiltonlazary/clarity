@@ -1,0 +1,12 @@
+@import "../../utils/code";
+
+.clr-example {
+    h6 {
+        text-align: center;
+    }
+
+    /deep/ .gauge-content {
+        margin-top: 90px;
+        font-size: 40px;
+    }
+}

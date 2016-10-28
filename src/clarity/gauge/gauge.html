@@ -1,0 +1,17 @@
+<div class="gauge-container gauge">
+    <div class="gauge-circle-bg"></div>
+    <div class="gauge-circle-fill gauge-bar-two"
+         [ngClass]="{'gauge-animate': animate}"
+         [style.background-color]="colorTwo"
+         [style.transform]="_valueTwo"></div>
+    <div class="gauge-circle-fill gauge-bar-one"
+         [ngClass]="{'gauge-animate': animate}"
+         [style.background-color]="colorOne"
+         [style.transform]="_valueOne"></div>
+    <div class="gauge-circle-inner"
+         [style.background-color]="backgroundColor">
+        <div class="gauge-circle-caption">
+           <ng-content></ng-content>
+        </div>
+   </div>
+</div>

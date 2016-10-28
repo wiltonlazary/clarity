@@ -1,0 +1,61 @@
+@import "../utils/variables.clarity";
+@import "../utils/mixins.clarity";
+@import "../color/color.clarity";
+@import "../typography/typography.clarity";
+
+$darkblue: rgb(0, 106, 144);
+
+.gauge-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+}
+
+// Default horseshoe size
+.gauge-horseshoe {
+    width: 256px;
+    height: 200px;
+    overflow: hidden;
+    svg {
+        height: 256px;
+    }
+}
+
+svg circle.animatable {
+    transition: stroke-dasharray 0.5s ease-out;
+}
+
+.animation-start svg circle.animatable {
+    stroke-dasharray: 0 100 !important;
+}
+
+svg {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+
+    circle.bg {
+        stroke: rgb(221, 221, 221);
+        stroke-width: 32;
+        fill: none;
+    }
+
+    circle.one {
+        stroke: $darkblue;
+        stroke-width: 32;
+        fill: none;
+    }
+
+    circle.two {
+        stroke: rgb(157, 197, 217);
+        stroke-width: 32;
+        fill: none;
+    }
+
+    circle.middle {
+        fill: rgb(255, 255, 255);
+    }
+}

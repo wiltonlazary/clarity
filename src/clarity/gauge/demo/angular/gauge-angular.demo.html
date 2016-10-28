@@ -1,0 +1,138 @@
+<h2>Angular Component</h2>
+
+<div>
+Clarity gauges are available in three sizes by default and are easily customized.
+</div>
+
+<h3>Summary of Options</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="left">Input</th>
+            <th class="left">Values</th>
+            <th>Default</th>
+            <th class="left">Effect</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="left">[clrGaugeValueOne]</td>
+            <td class="left">integer 0 &lt;= x &lt;= 100</td>
+            <td>0</td>
+            <td class="left">-</td>
+        </tr>
+        <tr>
+            <td class="left">[clrGaugeValueTwo]</td>
+            <td class="left">integer 0 &lt;= x &lt;= 100</td>
+            <td>0</td>
+            <td class="left">Will only be visible if valueTwo > valueOne.</td>
+        </tr>
+        <tr>
+            <td class="left">[clrGaugeColorOne]</td>
+            <td class="left">string</td>
+            <td>rgb(0, 106, 144)</td>
+            <td class="left">-</td>
+        </tr>
+        <tr>
+            <td class="left">[clrGaugeColorOne]</td>
+            <td class="left">string</td>
+            <td>rgb(157, 197, 217)</td>
+            <td class="left">-</td>
+        </tr>
+        <tr>
+            <td class="left">[clrGaugeBackgroundColor]</td>
+            <td class="left">string</td>
+            <td>rgb(255, 255, 255)</td>
+            <td class="left">The background color of the central part of the gauge.</td>
+        </tr>
+        <tr>
+            <td class="left">[clrGaugeAnimate]</td>
+            <td class="left">boolean</td>
+            <td>true</td>
+            <td class="left">Whether or not the gauge bars should animate when values change</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Examples</h4>
+<h6>1. Gauges in three sizes</h6>
+
+<div style="display: flex; justify-content: space-around;">
+   <div class="clr-example gauge-large">
+      <h6>gauge-large</h6>
+      <clr-gauge
+         [clrGaugeColorOne]="colorOne"
+         [clrGaugeColorTwo]="colorTwo"
+         [clrGaugeBackgroundColor]="backgroundColor"
+         [clrGaugeAnimate]="animate"
+         [clrGaugeValueOne]="valueOne"
+         [clrGaugeValueTwo]="valueTwo">{{valueOne}}</clr-gauge>
+   </div>
+
+   <div class="clr-example gauge-medium">
+      <h6>gauge-medium</h6>
+      <clr-gauge
+         [clrGaugeColorOne]="colorOne"
+         [clrGaugeColorTwo]="colorTwo"
+         [clrGaugeBackgroundColor]="backgroundColor"
+         [clrGaugeAnimate]="animate"
+         [clrGaugeValueOne]="valueOne"
+         [clrGaugeValueTwo]="valueTwo">{{valueOne}}</clr-gauge>
+   </div>
+
+   <div class="clr-example gauge-small">
+      <h6>gauge-small</h6>
+      <clr-gauge
+         [clrGaugeColorOne]="colorOne"
+         [clrGaugeColorTwo]="colorTwo"
+         [clrGaugeBackgroundColor]="backgroundColor"
+         [clrGaugeAnimate]="animate"
+         [clrGaugeValueOne]="valueOne"
+         [clrGaugeValueTwo]="valueTwo">{{valueOne}}</clr-gauge>
+   </div>
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+   <div>
+      Value one: <input type="number" [(ngModel)]="valueOne"/> Color: <input type="text" [(ngModel)]="colorOne"/><br />
+      Value two: <input type="number" [(ngModel)]="valueTwo"/> Color: <input type="text" [(ngModel)]="colorTwo"/><br />
+      Background color: <input type="text" [(ngModel)]="backgroundColor"/><br/>
+      Animate: <input type="checkbox" (change)="animateChange($event)" [checked]="animate" [(ngModel)]="animate"/><br/>
+   </div>
+</div>
+
+<pre><code clr-code-highlight="language-html">
+&lt;div class=&quot;clr-example gauge-large&quot;&gt;
+   &lt;clr-gauge
+      [clrGaugeAnimate]=&quot;{{animate?'true':'false'}}&quot;
+      [clrGaugeColorOne]=&quot;'{{colorOne}}'&quot;
+      [clrGaugeColorTwo]=&quot;'{{colorTwo}}'&quot;
+      [clrGaugeBackgroundColor]=&quot;'{{backgroundColor}}'&quot;
+      [clrGaugeValueOne]=&quot;{{valueOne}}&quot;
+      [clrGaugeValueTwo]=&quot;{{valueTwo}}&quot;&gt;{{valueOne}}&lt;/clr-gauge&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code clr-code-highlight="language-html">
+&lt;div class=&quot;clr-example gauge-medium&quot;&gt;
+   &lt;clr-gauge
+      [clrGaugeAnimate]=&quot;{{animate?'true':'false'}}&quot;
+      [clrGaugeColorOne]=&quot;'{{colorOne}}'&quot;
+      [clrGaugeColorTwo]=&quot;'{{colorTwo}}'&quot;
+      [clrGaugeBackgroundColor]=&quot;'{{backgroundColor}}'&quot;
+      [clrGaugeValueOne]=&quot;{{valueOne}}&quot;
+      [clrGaugeValueTwo]=&quot;{{valueTwo}}&quot;&gt;{{valueOne}}&lt;/clr-gauge&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code clr-code-highlight="language-html">
+&lt;div class=&quot;clr-example gauge-small&quot;&gt;
+   &lt;clr-gauge
+      [clrGaugeAnimate]=&quot;{{animate?'true':'false'}}&quot;
+      [clrGaugeColorOne]=&quot;'{{colorOne}}'&quot;
+      [clrGaugeColorTwo]=&quot;'{{colorTwo}}'&quot;
+      [clrGaugeBackgroundColor]=&quot;'{{backgroundColor}}'&quot;
+      [clrGaugeValueOne]=&quot;{{valueOne}}&quot;
+      [clrGaugeValueTwo]=&quot;{{valueTwo}}&quot;&gt;{{valueOne}}&lt;/clr-gauge&gt;
+&lt;/div&gt;
+</code></pre>

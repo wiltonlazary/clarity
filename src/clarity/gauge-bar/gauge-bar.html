@@ -1,0 +1,13 @@
+<div class="gauge-bar-container">
+    <div class="gauge-bar-block">
+        <div class="gauge-bar" [ngStyle]="{
+                 'width': valueOne + '%',
+                 'backgroundColor': colorOne}"
+              [ngClass]="{'gauge-bar-animate': animate}"></div>
+        <div class="gauge-bar-plus" [ngStyle]="{
+                 'width': _valueTwo + '%',
+                 'backgroundColor': colorTwo}"
+              [ngClass]="{'gauge-bar-animate': animate}"></div>
+        <div class="gauge-bar-fill" [style.background-color]="backgroundColor"></div>
+    </div>
+</div>
