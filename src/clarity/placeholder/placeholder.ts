@@ -1,14 +1,14 @@
 import {
     Component,
     Input,
-    NgOnInit
+    OnInit
 } from "@angular/core";
 
 @Component({
     selector: "clr-placeholder",
     templateUrl: "./placeholder.html",
 })
-export class Placeholder {
+export class Placeholder implements OnInit {
     @Input("clrType") type: String;
     placeholderType: String;
 

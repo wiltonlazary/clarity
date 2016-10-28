@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {Placeholder} from '../placeholder';
+import {Component} from "@angular/core";
+import {Placeholder} from "../placeholder";
 /**
  * Optional TITLE export to be used as navigation link to this demo.
  * Default is the path from clarity/ (excluded) to here, without /demo, capitalized.
@@ -9,7 +9,7 @@ import {Placeholder} from '../placeholder';
 export const TITLE = "Placeholders";
 
 @Component({
-    selector: 'clr-placeholder-demo',
+    selector: "clr-placeholder-demo",
     directives: [Placeholder],
     templateUrl: "./placeholder.demo.html",
     styleUrls: ["./placeholder.demo.css"]
