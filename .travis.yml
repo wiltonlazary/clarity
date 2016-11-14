@@ -9,6 +9,8 @@ addons:
     packages:
       - g++-4.8
 
+  sauce_connect: true
+
 cache:
   directories:
      - ./node_modules
