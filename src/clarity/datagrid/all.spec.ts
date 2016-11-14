@@ -9,22 +9,6 @@
  */
 
 import {addHelpers} from "./helpers.spec";
-import SortProviderSpecs from "./providers/sort.spec";
-import FiltersProviderSpecs from "./providers/filters.spec";
-import PageProviderSpecs from "./providers/page.spec";
-import ItemsProviderSpecs from "./providers/items.spec";
-import SelectionProviderSpecs from "./providers/selection.spec";
-import DatagridCellSpecs from "./datagrid-cell.spec";
-import DatagridFilterSpecs from "./datagrid-filter.spec";
-import DatagridColumnSpecs from "./datagrid-column.spec";
-import DatagridItemsSpecs from "./datagrid-items.spec";
-import DatagridRowSpecs from "./datagrid-row.spec";
-import DatagridFooterSpecs from "./datagrid-footer.spec";
-import DatagridPaginationSpecs from "./datagrid-pagination.spec";
-import NestedPropertySpec from "./built-in/nested-property.spec";
-import DatagridPropertyComparatorSpecs from "./built-in/comparators/datagrid-property-comparator.spec";
-import DatagridPropertyStringFilterSpecs from "./built-in/filters/datagrid-property-string-filter.spec";
-import DatagridStringFilterSpecs from "./built-in/filters/datagrid-string-filter.spec";
 
 describe("Datagrid", function() {
     addHelpers();
