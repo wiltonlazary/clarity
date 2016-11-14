@@ -60,16 +60,17 @@ clr-icon {
     &.icon-color-highlight {
         @include setIconColor($clr-action-blue);
     }
-    &.icon-orient-up {
+    &.icon-orient-up, &[shape$=" up"] {
         @include rotateSVGIcon(0deg);
     }
-    &.icon-orient-down {
+    &.icon-orient-down, &[shape$=" down"]
+    {
         @include rotateSVGIcon(180deg);
     }
-    &.icon-orient-right {
+    &.icon-orient-right, &[shape$=" right"] {
         @include rotateSVGIcon(90deg);
     }
-    &.icon-orient-left {
+    &.icon-orient-left, &[shape$=" left"] {
         @include rotateSVGIcon(270deg);
     }
     & > svg {
@@ -83,4 +84,6 @@ clr-icon {
         stroke-linejoin: round;
         stroke-miterlimit: 10;
     }
+
+
 }
