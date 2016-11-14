@@ -6,71 +6,11 @@ module.exports = function (config) {
 
     // Browsers to run on Sauce Labs
     var customLaunchers = {
-        'SL_Chrome_Win_7': {
-            base: 'SauceLabs',
-            browserName: 'chrome',
-            version: 54,
-            platform: 'Windows 7'
-        },
-        'SL_Chrome_Win_8': {
-            base: 'SauceLabs',
-            browserName: 'chrome',
-            version: 54,
-            platform: 'Windows 8'
-        },
-        'SL_Chrome_Win_8_1': {
-            base: 'SauceLabs',
-            browserName: 'chrome',
-            version: 54,
-            platform: 'Windows 8.1'
-        },
-        'SL_Chrome_Win_10': {
-            base: 'SauceLabs',
-            browserName: 'chrome',
-            version: 54,
-            platform: 'Windows 10'
-        },
-        'SL_Chrome_53_Win_10': {
-            base: 'SauceLabs',
-            browserName: 'chrome',
-            version: 53,
-            platform: 'Windows 10'
-        },
-        'SL_Chrome_52_Win_10': {
-            base: 'SauceLabs',
-            browserName: 'chrome',
-            version: 52,
-            platform: 'Windows 10'
-        },
-        'SL_Chrome_Mac': {
-            base: 'SauceLabs',
-            browserName: 'chrome',
-            version: 54,
-            platform: 'OS X 10.11'
-        },
         'SL_IE_10': {
             base: 'SauceLabs',
             browserName: 'internet explorer',
             version: '10',
             platform: 'Windows 7'
-        },
-        'SL_IE_11': {
-            base: 'SauceLabs',
-            browserName: 'internet explorer',
-            version: '11',
-            platform: 'Windows 7'
-        },
-        'SL_IE_Edge_13': {
-            base: 'SauceLabs',
-            browserName: 'MicrosoftEdge',
-            version: '13',
-            platform: 'Windows 10'
-        },
-        'SL_IE_Edge_14': {
-            base: 'SauceLabs',
-            browserName: 'MicrosoftEdge',
-            version: '14',
-            platform: 'Windows 10'
         },
         'SL_FireFox_Win_7': {
             base: 'SauceLabs',
@@ -96,18 +36,6 @@ module.exports = function (config) {
             version: 49,
             platform: 'Windows 10'
         },
-        'SL_FireFox_47_Win_10': {
-            base: 'SauceLabs',
-            browserName: 'firefox',
-            version: 47,
-            platform: 'Windows 10'
-        },
-        'SL_FireFox_48_Win_10': {
-            base: 'SauceLabs',
-            browserName: 'firefox',
-            version: 48,
-            platform: 'Windows 10'
-        },
         'SL_FireFox_Mac': {
             base: 'SauceLabs',
             browserName: 'firefox',
@@ -119,18 +47,6 @@ module.exports = function (config) {
             browserName: 'firefox',
             version: 45,
             platform: 'Linux'
-        },
-        'SL_Safari_9': {
-            base: 'SauceLabs',
-            browserName: 'safari',
-            version: 9,
-            platform: 'OS X 10.11'
-        },
-        'SL_Safari_10': {
-            base: 'SauceLabs',
-            browserName: 'safari',
-            version: 10,
-            platform: 'OS X 10.11'
         }
     };
 
