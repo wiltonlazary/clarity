@@ -29,26 +29,26 @@ import DatagridStringFilterSpecs from "./built-in/filters/datagrid-string-filter
 describe("Datagrid", function() {
     addHelpers();
 
-    describe("Providers", function() {
-        SortProviderSpecs();
-        FiltersProviderSpecs();
-        PageProviderSpecs();
-        ItemsProviderSpecs();
-        SelectionProviderSpecs();
-    });
-    describe("Components", function() {
-        DatagridCellSpecs();
-        DatagridFilterSpecs();
-        DatagridColumnSpecs();
-        DatagridItemsSpecs();
-        DatagridRowSpecs();
-        DatagridPaginationSpecs();
-        DatagridFooterSpecs();
-    });
-    describe("Built-in", function() {
-        NestedPropertySpec();
-        DatagridPropertyComparatorSpecs();
-        DatagridPropertyStringFilterSpecs();
-        DatagridStringFilterSpecs();
-    });
+    // describe("Providers", function() {
+    //     SortProviderSpecs();
+    //     FiltersProviderSpecs();
+    //     PageProviderSpecs();
+    //     ItemsProviderSpecs();
+    //     SelectionProviderSpecs();
+    // });
+    // describe("Components", function() {
+    //     DatagridCellSpecs();
+    //     DatagridFilterSpecs();
+    //     DatagridColumnSpecs();
+    //     DatagridItemsSpecs();
+    //     DatagridRowSpecs();
+    //     DatagridPaginationSpecs();
+    //     DatagridFooterSpecs();
+    // });
+    // describe("Built-in", function() {
+    //     NestedPropertySpec();
+    //     DatagridPropertyComparatorSpecs();
+    //     DatagridPropertyStringFilterSpecs();
+    //     DatagridStringFilterSpecs();
+    // });
 });
