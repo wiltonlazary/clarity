@@ -21,23 +21,23 @@ If you already have an Angular 2 application, you can follow the installation st
 ### Installing Clarity Icons
 
 1. Install Clarity Icons package through npm:
-    ```
+    ```bash
     npm install clarity-icons --save
     ```
 
 2. Install the polyfill for Custom Elements: 
-    ```
-    npm install github:webcomponents/custom-elements.git#v1.0.0-alpha.3 --save
+    ```bash
+    npm install @webcomponents/custom-elements@1.0.0-alpha.3 --save
     ```
 
 3. (Optional) If your application supports IE10, the polyfill will require the MutationObserver shim to work. If your 
 application doesn't support IE10, you can skip the following installation:
-    ```
+    ```bash
     npm install mutationobserver-shim@0.3.2 --save
     ```
 
 4. Include the clarity-icons.min.css and clarity-icons.min.js in your HTML. As custom-elements.min.js is dependent on the Custom Elements polyfill, make sure to include it before clarity-icons.min.js. Also, if your app needs to support IE10, include the mutationobserver.min.js before the polyfill:
-    ```
+    ```html
     <link rel="stylesheet" href="path/to/node_modules/clarity-icons/clarity-icons.min.css">
 
     <script src="path/to/node_modules/mutationobserver-shim/dist/mutationobserver.min.js"></script>
@@ -47,7 +47,7 @@ application doesn't support IE10, you can skip the following installation:
 
     If your site is built with [angular-cli](https://github.com/angular/angular-cli) you can achieve the above by adding the files to the styles array and 
     scripts array in `angular-cli.json`:
-    ```
+    ```js
     "styles": [
         ...
         "../node_modules/clarity-icons/clarity-icons.min.css",
@@ -65,18 +65,18 @@ application doesn't support IE10, you can skip the following installation:
 ### Installing Clarity UI
 
 1. Install Clarity UI package through npm:
-    ```
+    ```bash
     npm install clarity-ui --save
     ```
 
 2. Include the clarity-ui.min.css in your HTML file:
-    ```
+    ```html
     <link rel="stylesheet" href="path/to/node_modules/clarity-ui/clarity-ui.min.css">
     ```
 
     If your site is built with [angular-cli](https://github.com/angular/angular-cli), you can achieve the above by adding the file to the styles array in 
     `angular-cli.json`:
-    ```
+    ```js
     "styles": [
         ...
         "../node_modules/clarity-ui/clarity-ui.min.css"
@@ -90,12 +90,12 @@ application doesn't support IE10, you can skip the following installation:
 
 1. Follow steps above to install Clarity Icons and Clarity UI.
 2. Install the clarity-angular package through npm:
-    ```
+    ```bash
     npm install clarity-angular --save
     ```
 
 3. Import the ClarityModule into your Angular 2 application's module.  Your application's main module might look like this:
-    ```
+    ```typescript
     import { NgModule } from '@angular/core';
     import { BrowserModule } from '@angular/platform-browser';
     import { ClarityModule } from 'clarity-angular';
@@ -112,7 +112,26 @@ application doesn't support IE10, you can skip the following installation:
     })
     export class AppModule {    }
     ```
-
+    
+    If your application uses [systemjs](https://github.com/systemjs/systemjs), add the clarity-angular configurations
+    . If your application already has packages setting for `rxjs` but doesn't have the `main` file, add it in as shown 
+    below.
+    ```
+    System.config({
+    	...
+    	map: {
+    	   ...
+    	   'clarity-angular': 'node_modules/clarity-angular',
+    	},
+    	packages: {
+            ...
+            'rxjs' : { main: 'Rx.js', defaultExtension: 'js' },
+            'clarity-angular' : { main: './index.js', defaultExtension: 'js' }
+    	}
+    	...
+    });
+    ```
+    
 ## Documentation
 
 For documentation on the Clarity Design System, including a list of components and example usage, see [our website](https://vmware.github.io/clarity).
@@ -129,3 +148,5 @@ The Clarity project team welcomes contributions from the community. For more det
 ## Feedback
 
 If you find a bug or want to request a new feature, please open a [GitHub issue](https://github.com/vmware/clarity/issues).
+If possible please provide a minimal demo illustrating the issue with https://plunkr.co
+- Fork the [Clarity Plunker Template](https://plnkr.co/edit/VPxyl7?p=preview) and submit your link with the issue.

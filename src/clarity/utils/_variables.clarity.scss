@@ -334,6 +334,7 @@ $clr-typography-dom-to-type-element: (
     card_link: p6,
     card_text: p1,
     card_title: h4,
+    datagrid_placeholder: h5,
     dropdown_text: p1,
     dropdown_header: p4,
     form_block_label: h5,
@@ -457,7 +458,7 @@ $clr-icon-dimension-sm: rem(16/$clr-rem-denominator) !default;
 
 //12. Dropdowns Caret Icon
 $clr-dropdown-caret-icon-dimension: 10px;
-$clr-dropdown-caret-left-margin: $clr_baselineRem_0_25;
+$clr-dropdown-caret-left-margin: 2px;
 
 //BS4 overrides
 $enable-flex: true;
